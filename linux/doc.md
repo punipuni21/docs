@@ -26,3 +26,5 @@ POST：ハードウェアが指定通りに機能するかを確認
 モダンな環境でBIOSからUEFIに置き換わっている
 詳細はhttps://www.freecodecamp.org/news/uefi-vs-bios/ を参照
 
+OSの詳細は[osdev.org](https://wiki.osdev.org/Expanded_Main_Page)を参照
+
