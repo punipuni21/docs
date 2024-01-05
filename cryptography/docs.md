@@ -22,4 +22,5 @@ FIXME
 - PBKDF2とは
 - HMACとは
 - PPAPとは
-- 
+- SHA-256
+- SHA-3
