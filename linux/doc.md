@@ -28,3 +28,18 @@ POST：ハードウェアが指定通りに機能するかを確認
 
 OSの詳細は[osdev.org](https://wiki.osdev.org/Expanded_Main_Page)を参照
 
+### x86アーキテクチャ
+Intelが開発．
+- x64(x86_64)：64bitプロセッサ
+- x86：32bitプロセッサ
+
+### ARMアーキテクチャ
+RISC(Reduced Instruction Set Computing)の一種．
+消費電力が小さい．携帯機器，IoT機器に搭載
+x86チップよりも発熱が小さい
+Spectreの脆弱性あり
+
+### RISC-Vアーキテクチャ
+新しく，あまり普及していない
+
+
