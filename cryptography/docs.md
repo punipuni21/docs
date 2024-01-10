@@ -52,7 +52,19 @@ PKIで失効した公開鍵証明書の一覧．
 #### CRLの問題点
 サイズが増大し続ける
 
-#### OCSP
-TBD
+#### OCSP(Online Certificate Status Protocol)
+証明書が失効していないかを確認する
+
+```mermaid
+sequenceDiagram
+    A->>Server X: Request
+    Server X-->>A: Certificate Cx
+    A->>OSCP Responder: 失効確認
+    OSCP Responder->>A: OSCP Response
+```
+
+OSCPレスポンダは有効性検証局やVA(Validation Authority)が管理・運用している
+
+デメリット：アクセスしようとしているサイトの情報がOSCPレスポンダに渡るのでプライバシーの問題が発生する
 
 
