@@ -83,4 +83,9 @@ A->>Server X: Request
     Server X-->>A: Certificate Cx + OSCP Response
 ```
 
+### その他
+- CRLSets
+- OneSRL
+- CRLite
+
 
