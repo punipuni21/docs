@@ -97,13 +97,19 @@ sequenceDiagram
 管理者->> 認証局: admin@sample.example
 認証局->> 管理者: sample.exampleの公開鍵証明書を発行
 ```
+admin@のメールは管理者しか使えないのでsample.exampleの管理者であると判断できる
 
 サーバ認証
 ```mermaid
 sequenceDiagram
 サーバ->> 認証局: 公開鍵証明書の発行依頼
 認証局->> サーバ: トークンX
-サーバ->> 認証局: 起きました
+サーバ->> 認証局: 特定のページにトークンXを記す
 認証局->> サーバ: Xを確認したので発行
 ```
+
+- ACME(Automatic Certificate Management Environment)
+- Let's Encrypt
+
+#### ドメイン認証の問題点
 
