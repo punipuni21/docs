@@ -112,4 +112,20 @@ sequenceDiagram
 - Let's Encrypt
 
 #### ドメイン認証の問題点
+ずさんな認証局がadminの文字列の存在のみで証明書を発行するケースがある
+
+
+- 組織認証
+- 拡張認証
+
+### 証明書の透明性(Certificate Transparency)
+SCT(Signed Certificate Timestamp)：ログサーバによる署名がついたタイムスタンプ
+```mermaid
+sequenceDiagram
+サーバ->> 認証局: 証明書の発行依頼
+認証局->> CTのログサーバ: 証明書の登録依頼
+CTのログサーバ->> 認証局: ログに追記・SCTを発行
+認証局->> サーバ: SCTつき証明書
+```
+
 
