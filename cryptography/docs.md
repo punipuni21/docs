@@ -132,3 +132,27 @@ CTのログサーバ->> 認証局: ログに追記・SCTを発行
 - SCTがついていなければ怪しいと判断できる
 - ログサーバを監視することで自分のサイトの不正な証明書が発行されていないかを監視できる
 
+### TLS
+ブラウザでインターネットにアクセスするときの暗号プロトコル
+
+#### TLS1.3の特徴
+- 性能の向上
+  - ハンドシェイク効率化
+- 安全性の向上
+  - 暗号化アルゴリズムの整備
+  - 新しい鍵導出アルゴリズム
+  - 形式検証
+  - 認証付き暗号
+  - 前方秘匿性
+  
+#### ハンドシェイク効率化
+
+TLS1.2：暗号通信の前に3回データをやり取りしている
+```mermaid
+sequenceDiagram
+クライアント->> サーバ: ClientHello
+サーバ->> クライアント: SErverHello, Certificate, ServerKeyExchange, ServerHelloDone
+クライアント->> サーバ: ClientKeyExchage, Finished
+サーバ->> クライアント: Finished, Enc(Application data)
+クライアント->> サーバ: Enc(Application data)
+```
