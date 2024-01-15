@@ -159,5 +159,15 @@ sequenceDiagram
 
 1. 通信開始のためのパラメータ送信
 2. 暗号通信のパラメータを決定(ServerHello)，サーバ証明書(Certificate)とマスターシークレット(master secret)のための情報(SecretKeyExchange)を送る．最後にServerHelloDoneで完了
-3. マスターシークレットの情報(ClientKeyExchange)を送り，完了(Finished)
+3. サーバ証明書を検証して問題なければマスターシークレットのための情報(ClientKeyExchange)を送り，完了(Finished)
 4. サーバもマスターシークレットを作り完了通知を送り(Finished)，暗号通信を開始
+
+
+TLS1.3：暗号通信の前のデータのやり取り回数が減っている
+```mermaid
+sequenceDiagram
+クライアント->> サーバ: ClientHello(KS,PSK)
+サーバ->> クライアント: ServerHello(KS, PSK), Enc(EncryptedExtensions),Enc(Certificate), Enc(Finished)
+サーバ->> クライアント: Enc(Application data)
+クライアント->> サーバ: Enc(Finished),Enc(Application data)
+```
