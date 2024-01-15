@@ -151,7 +151,7 @@ TLS1.2：暗号通信の前に3回データをやり取りしている
 ```mermaid
 sequenceDiagram
 クライアント->> サーバ: ClientHello
-サーバ->> クライアント: SErverHello, Certificate, ServerKeyExchange, ServerHelloDone
+サーバ->> クライアント: ServerHello, Certificate, ServerKeyExchange, ServerHelloDone
 クライアント->> サーバ: ClientKeyExchage, Finished
 サーバ->> クライアント: Finished, Enc(Application data)
 クライアント->> サーバ: Enc(Application data)
