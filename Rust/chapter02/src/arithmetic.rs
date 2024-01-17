@@ -29,3 +29,15 @@ pub fn check_option_overflow() {
         None => println!("overflow!"),
     }
 }
+
+#[allow(dead_code)]
+pub fn check_boolean_overflow() {
+    let x: u8 = 100;
+    let y: u8 = 200;
+    let (result, overflow) = x.overflowing_add(y);
+    if overflow {
+        println!("overflow!");
+    } else {
+        println!("{} + {} = {}", x, y, result);
+    }
+}
