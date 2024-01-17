@@ -19,3 +19,13 @@ pub fn ignore_overflow() {
     let result = x.wrapping_add(y);
     println!("{} + {} = {}", x, y, result); //44
 }
+
+#[allow(dead_code)]
+pub fn check_option_overflow() {
+    let x: u8 = 100;
+    let y: u8 = 200;
+    match x.checked_add(y) {
+        Some(result) => println!("{} + {} = {}", x, y, result),
+        None => println!("overflow!"),
+    }
+}
