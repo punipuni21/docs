@@ -11,3 +11,11 @@ pub fn overflow() {
     let result = x + y;
     println!("{} + {} = {}", x, y, result);
 }
+
+#[allow(dead_code)]
+pub fn ignore_overflow() {
+    let x: u8 = 100;
+    let y: u8 = 200;
+    let result = x.wrapping_add(y);
+    println!("{} + {} = {}", x, y, result); //44
+}
