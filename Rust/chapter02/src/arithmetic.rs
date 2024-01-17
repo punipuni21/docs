@@ -3,3 +3,11 @@ pub fn symbol() {
     let result = 5 + 10;
     println!("5 + 10 = {}", result);
 }
+
+#[allow(dead_code)]
+pub fn overflow() {
+    let x: u8 = 100;
+    let y: u8 = 200;
+    let result = x + y;
+    println!("{} + {} = {}", x, y, result);
+}
