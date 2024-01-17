@@ -41,3 +41,15 @@ pub fn check_boolean_overflow() {
         println!("{} + {} = {}", x, y, result);
     }
 }
+
+#[allow(dead_code)]
+pub fn return_max_overflow() {
+    let x: u8 = 100;
+    let y: u8 = 200;
+    let result = x.saturating_add(y);
+    if result == u8::MAX {
+        println!("overflow!");
+    } else {
+        println!("{} + {} = {}", x, y, result);
+    }
+}
