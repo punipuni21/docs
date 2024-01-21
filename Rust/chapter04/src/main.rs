@@ -6,5 +6,6 @@ fn main() {
     // tuple_type::dealare();
     // tuple_type::calc((10, 20));
     // tuple_type::methods();
-    slice_type::get();
+    // slice_type::get();
+    slice_type::range();
 }
