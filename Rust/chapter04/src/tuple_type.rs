@@ -10,3 +10,9 @@ pub fn dealare() {
     println!("a={:?}, b={:?}, c={:?}", a, b, c);
     println!("l={:?}, m={:?}", l, m);
 }
+
+#[allow(dead_code)]
+pub fn calc(value: (i32, i32)) {
+    println!("{} + {} = {}", value.0, value.1, value.0 + value.1);
+    println!("{} - {} = {}", value.0, value.1, value.0 - value.1);
+}
