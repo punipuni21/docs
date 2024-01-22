@@ -27,3 +27,12 @@ pub fn invalid_multibyte_slice() {
     let slice = &company_name[1..3]; //invalid slice
     println!("ref range: {:?}, size={}", slice, slice.len()); //this program will panic
 }
+
+#[allow(dead_code)]
+pub fn valid_multibyte_slice() {
+    let company_name = "株式会社Rust";
+    let slice = &company_name[..12];
+    println!("ref range: {:?}, size={}", slice, slice.len());
+    let slice = &company_name[12..];
+    println!("ref range: {:?}, size={}", slice, slice.len());
+}
