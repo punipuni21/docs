@@ -13,5 +13,6 @@ fn main() {
     // slice_type::valid_multibyte_slice();
     // slice_type::fat_pointer();
     // str_type::declar();
-    str_type::invalid_str_binding();
+    // str_type::invalid_str_binding();
+    str_type::valid_str_binding();
 }
