@@ -9,5 +9,6 @@ fn main() {
     // slice_type::get();
     // slice_type::range();
     // slice_type::multibyte_slice();// invalid slice
-    slice_type::valid_multibyte_slice();
+    // slice_type::valid_multibyte_slice();
+    slice_type::fat_pointer();
 }

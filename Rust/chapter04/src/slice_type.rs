@@ -36,3 +36,22 @@ pub fn valid_multibyte_slice() {
     let slice = &company_name[12..];
     println!("ref range: {:?}, size={}", slice, slice.len());
 }
+
+#[allow(dead_code)]
+pub fn fat_pointer() {
+    let int_array = [0, 1, 2, 3, 4, 5, 6];
+    let slice: &[i32] = &int_array[0..]; //slice is a fat pointer, which contains a head pointer and a element size
+    println!(
+        "ref range={:?}, pointer={:p}, element size={}",
+        slice,
+        slice,
+        slice.len()
+    );
+    let slice = &int_array[3..5];
+    println!(
+        "ref range={:?}, pointer={:p}, element size={}",
+        slice,
+        slice,
+        slice.len()
+    );
+}
