@@ -7,5 +7,6 @@ fn main() {
     // tuple_type::calc((10, 20));
     // tuple_type::methods();
     // slice_type::get();
-    slice_type::range();
+    // slice_type::range();
+    // slice_type::multibyte_slice();// invalid slice
 }

@@ -20,3 +20,10 @@ pub fn range() {
     let slice: &[i32] = &int_array[range];
     println!("slice: {:?}", slice);
 }
+
+#[allow(dead_code)]
+pub fn multibyte_slice() {
+    let company_name = "株式会社Rust"; //multibyte string use 3 bytes per character
+    let slice = &company_name[1..3]; //invalid slice
+    println!("ref range: {:?}, size={}", slice, slice.len()); //this program will panic
+}
