@@ -28,3 +28,29 @@ pub fn invalid_str_binding() {
         str_c.len()
     );
 }
+
+#[allow(dead_code)]
+pub fn valid_str_binding() {
+    let str_a = "Hello ";
+    let str_b = "Rust.";
+    println!(
+        "str_a:value = {:?}, ptr = {:p}, len = {}",
+        str_a,
+        str_a,
+        str_a.len()
+    );
+    println!(
+        "str_b:value = {:?}, ptr = {:p}, len = {}",
+        str_b,
+        str_b,
+        str_b.len()
+    );
+    //to_owned is a std::borrow::ToOwned trait method, which generate cloned string without move ownership
+    let str_c = str_a.to_owned() + str_b;
+    println!(
+        "str_c:value = {:?}, ptr = {:p}, len = {}",
+        str_c,
+        &str_c,
+        str_c.len()
+    );
+}
