@@ -1,5 +1,6 @@
 mod array_type;
 mod slice_type;
+mod str_type;
 mod tuple_type;
 fn main() {
     // array_type::multidimensional();
@@ -10,5 +11,7 @@ fn main() {
     // slice_type::range();
     // slice_type::multibyte_slice();// invalid slice
     // slice_type::valid_multibyte_slice();
-    slice_type::fat_pointer();
+    // slice_type::fat_pointer();
+    // str_type::declar();
+    str_type::invalid_str_binding();
 }
