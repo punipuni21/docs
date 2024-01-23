@@ -35,3 +35,20 @@ pub fn mut_declare() {
         println!("y_ptr: {}", *y_ptr);
     }
 }
+
+#[allow(dead_code)]
+pub fn mut_declare2() {
+    let x: i32 = 100;
+    let y: i32 = 200;
+
+    let mut ptr: *const i32 = &x;
+    unsafe {
+        println!("ptr value: {}", *ptr);
+        println!("ptr address: {:p}", ptr);
+    }
+    ptr = &y;
+    unsafe {
+        println!("ptr value: {}", *ptr);
+        println!("ptr address: {:p}", ptr);
+    }
+}

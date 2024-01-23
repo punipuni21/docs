@@ -17,5 +17,6 @@ fn main() {
     // str_type::invalid_str_binding();
     // str_type::valid_str_binding();
     // pointer_type::declare();
-    pointer_type::mut_declare()
+    // pointer_type::mut_declare()
+    pointer_type::mut_declare2();
 }
