@@ -32,3 +32,16 @@ pub fn branch_2() {
         _ => println!("x is invalid"),
     }
 }
+
+#[allow(dead_code)]
+pub fn branch_3() {
+    let calc = |x: i32| x * 10;
+    let y = 3;
+    let result = match y {
+        1 => calc(10),
+        2 => calc(20),
+        3 => calc(30),
+        _ => calc(0),
+    };
+    println!("result={}", result);
+}
