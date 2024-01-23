@@ -1,4 +1,5 @@
 mod array_type;
+mod pointer_type;
 mod slice_type;
 mod str_type;
 mod tuple_type;
@@ -14,5 +15,6 @@ fn main() {
     // slice_type::fat_pointer();
     // str_type::declar();
     // str_type::invalid_str_binding();
-    str_type::valid_str_binding();
+    // str_type::valid_str_binding();
+    pointer_type::declare();
 }
