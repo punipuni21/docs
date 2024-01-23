@@ -22,3 +22,13 @@ pub fn branch_1() {
         }
     }
 }
+
+#[allow(dead_code)]
+pub fn branch_2() {
+    let x = "ABC";
+    match x {
+        "ABC" => println!("x is ABC"),
+        "DEF" => println!("x is DEF"),
+        _ => println!("x is invalid"),
+    }
+}
