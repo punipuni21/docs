@@ -45,3 +45,16 @@ pub fn branch_3() {
     };
     println!("result={}", result);
 }
+
+pub fn branch_4() {
+    let calc = |x: i32| x * 10;
+    let value = 30;
+    let result = match value {
+        1..=3 => calc(10),
+        4..=6 => calc(20),
+        7..=9 => calc(30),
+        10 | 20 | 30 => calc(40),
+        _ => calc(0),
+    };
+    println!("result={}", result);
+}
