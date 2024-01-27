@@ -46,6 +46,7 @@ pub fn branch_3() {
     println!("result={}", result);
 }
 
+#[allow(dead_code)]
 pub fn branch_4() {
     let calc = |x: i32| x * 10;
     let value = 30;
@@ -55,6 +56,18 @@ pub fn branch_4() {
         7..=9 => calc(30),
         10 | 20 | 30 => calc(40),
         _ => calc(0),
+    };
+    println!("result={}", result);
+}
+
+#[allow(dead_code)]
+pub fn branch_5() {
+    let value = (10, 25);
+    let result = match value {
+        (x, y) if x == 0 && y == 0 => "x and y are both zero",
+        (x, y) if x % 2 == 0 && y % 2 == 0 => "x and y are both even",
+        (x, y) if x % 2 == 1 && y % 2 == 1 => "x and y are both odd",
+        _ => "do not match any patterns",
     };
     println!("result={}", result);
 }
