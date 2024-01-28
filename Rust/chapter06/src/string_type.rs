@@ -22,3 +22,17 @@ pub fn instantiate() {
         &s3.capacity()
     );
 }
+
+#[allow(dead_code)]
+pub fn add() {
+    let mut s = String::from("abc");
+    s.push('d');
+    println!("push()={:?}", &s);
+    s.insert(1, 'd');
+    println!("insert()={:?}", &s);
+    let mut s = String::from("abc");
+    s.push_str("d");
+    println!("push_str()={:?}", &s);
+    s.insert_str(1, "d");
+    println!("insert_str()={:?}", &s);
+}
