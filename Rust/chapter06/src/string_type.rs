@@ -28,7 +28,7 @@ pub fn add() {
     let mut s = String::from("abc");
     s.push('d');
     println!("push()={:?}", &s);
-    s.insert(1, 'd');
+    s.insert(1, 'd'); //FIXME search insert implementation
     println!("insert()={:?}", &s);
     let mut s = String::from("abc");
     s.push_str("d");
