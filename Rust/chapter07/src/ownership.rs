@@ -32,9 +32,21 @@ fn print_message(message: String) {
     println!("message = {:?}", message);
 }
 
+// #[allow(dead_code)]
+// pub fn ownership_4() {
+//     let x = String::from("ABC");
+//     print_message(x);
+//     println!("x: {:?}", x); // ownership of an instance is moved to the function, so x is no longer valid.
+// }
+
 #[allow(dead_code)]
-pub fn ownership_4() {
-    let x = String::from("ABC");
-    print_message(x);
-    println!("x: {:?}", x); // ownership of an instance is moved to the function, so x is no longer valid.
+fn message() -> String {
+    let r = String::from("good morning");
+    r // ownership of r is moved to the caller of this function.
+}
+
+#[allow(dead_code)]
+pub fn ownership_6() {
+    let x = message();
+    println!("x: {:?}", x);
 }
