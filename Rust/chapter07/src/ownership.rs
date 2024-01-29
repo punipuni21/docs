@@ -26,3 +26,15 @@ pub fn ownership_3() {
     println!("x: {:?}", x);
     println!("y: {:?}", y);
 }
+
+#[allow(dead_code)]
+fn print_message(message: String) {
+    println!("message = {:?}", message);
+}
+
+#[allow(dead_code)]
+pub fn ownership_4() {
+    let x = String::from("ABC");
+    print_message(x);
+    println!("x: {:?}", x); // ownership of an instance is moved to the function, so x is no longer valid.
+}
