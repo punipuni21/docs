@@ -6,5 +6,7 @@ fn main() {
     // ownership::ownership_3();
     // ownership::ownership_4();
     // ownership::ownership_6();
-    reference::reference_1();
+    // reference::reference_1();
+    // reference::reference_2();
+    reference::reference_3();
 }
