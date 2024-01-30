@@ -9,5 +9,7 @@ fn main() {
     // date_time_type::format();
     // box_type::instantiate();
     // life_time::life_time_1();
-    life_time::life_time_2();
+    // life_time::life_time_2();
+    // life_time::life_time_3();
+    life_time::life_time_4();
 }

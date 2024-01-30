@@ -23,3 +23,27 @@ pub fn life_time_2() {
     println!("c = {}", c); // end of life time of c
     println!("end program");
 }
+
+// #[allow(dead_code)]
+// pub fn life_time_3() -> &String {
+//     let x = String::from("ABC");
+//     &x // end of life time of x, so this is error
+// }
+
+#[allow(dead_code)]
+// fn compare(value1: &String, value2: &String) -> &String {
+//     // missing lifetime specifier
+//     if (value1.len() > value2.len()) {
+//         value1
+//     } else {
+//         value2
+//     }
+// }
+
+// #[allow(dead_code)]
+// pub fn life_time_4() {
+//     let a = String::from("ABC");
+//     let b = String::from("DEF");
+//     let r = compare(&a, &b);
+//     println!("r = {:?}", r);
+// }
