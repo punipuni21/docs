@@ -30,10 +30,10 @@ pub fn life_time_2() {
 //     &x // end of life time of x, so this is error
 // }
 
-#[allow(dead_code)]
+// #[allow(dead_code)]
 // fn compare(value1: &String, value2: &String) -> &String {
 //     // missing lifetime specifier
-//     if (value1.len() > value2.len()) {
+//     if value1.len() > value2.len() {
 //         value1
 //     } else {
 //         value2
@@ -47,3 +47,21 @@ pub fn life_time_2() {
 //     let r = compare(&a, &b);
 //     println!("r = {:?}", r);
 // }
+
+#[allow(dead_code)]
+fn compare<'a>(value1: &'a String, value2: &'a String) -> &'a String {
+    // missing lifetime specifier
+    if value1.len() > value2.len() {
+        value1
+    } else {
+        value2
+    }
+}
+
+#[allow(dead_code)]
+pub fn life_time_5() {
+    let a = String::from("ABC");
+    let b = String::from("DEF");
+    let r = compare(&a, &b);
+    println!("r = {:?}", r);
+}
