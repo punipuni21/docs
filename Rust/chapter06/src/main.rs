@@ -2,6 +2,7 @@ mod box_type;
 mod date_time_type;
 mod life_time;
 mod option_type;
+mod result_type;
 mod string_type;
 fn main() {
     // string_type::instantiate();
@@ -16,10 +17,11 @@ fn main() {
     // life_time::life_time_5();
     // option_type::use_div();
     // option_type::method_4();
-    option_type::method_5();
-    let r = match option_type::method_5() {
-        Some(r) => r,
-        None => "cannot divide".to_owned(),
-    };
-    println!("method_5: {}", r);
+    // option_type::method_5();
+    // let r = match option_type::method_5() {
+    //     Some(r) => r,
+    //     None => "cannot divide".to_owned(),
+    // };
+    // println!("method_5: {}", r);
+    result_type::value_setting();
 }
