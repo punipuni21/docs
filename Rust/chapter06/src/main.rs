@@ -1,6 +1,7 @@
 mod box_type;
 mod date_time_type;
 mod life_time;
+mod option_type;
 mod string_type;
 fn main() {
     // string_type::instantiate();
@@ -11,5 +12,7 @@ fn main() {
     // life_time::life_time_1();
     // life_time::life_time_2();
     // life_time::life_time_3();
-    life_time::life_time_4();
+    // life_time::life_time_4();
+    // life_time::life_time_5();
+    option_type::use_div();
 }
