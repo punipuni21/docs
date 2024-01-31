@@ -14,5 +14,12 @@ fn main() {
     // life_time::life_time_3();
     // life_time::life_time_4();
     // life_time::life_time_5();
-    option_type::use_div();
+    // option_type::use_div();
+    // option_type::method_4();
+    option_type::method_5();
+    let r = match option_type::method_5() {
+        Some(r) => r,
+        None => "cannot divide".to_owned(),
+    };
+    println!("method_5: {}", r);
 }

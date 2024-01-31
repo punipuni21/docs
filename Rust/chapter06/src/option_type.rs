@@ -35,3 +35,11 @@ pub fn method_4() {
     };
     println!("ok_or_else: {}", r);
 }
+
+#[allow(dead_code)]
+pub fn method_5() -> Option<String> {
+    let x = 10;
+    let y = 0;
+    let result: i32 = div(x, y)?; //? means if None, return None
+    Some(format!("{} / {} = {}", x, y, result))
+}
