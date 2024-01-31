@@ -1,4 +1,5 @@
 mod box_type;
+mod closure;
 mod date_time_type;
 mod life_time;
 mod option_type;
@@ -23,5 +24,6 @@ fn main() {
     //     None => "cannot divide".to_owned(),
     // };
     // println!("method_5: {}", r);
-    result_type::value_setting();
+    // result_type::value_setting();
+    closure::closure_sum();
 }
