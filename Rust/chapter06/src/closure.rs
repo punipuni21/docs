@@ -12,3 +12,18 @@ pub fn closure_sum() {
     let values = vec![1, 2, 3, 4, 5];
     println!("sum: {}", sum(&values));
 }
+
+#[allow(dead_code)]
+pub fn move_1() {
+    let values = vec![1, 2, 3, 4, 5];
+    let sum = || {
+        //closure can use values in outer scope
+        let mut sum = 0;
+        for value in values.iter() {
+            sum += value;
+        }
+        sum
+    };
+    println!("sum: {}", sum());
+    println!("values: {:?}", values);
+}
