@@ -26,5 +26,6 @@ fn main() {
     // println!("method_5: {}", r);
     // result_type::value_setting();
     // closure::closure_sum();
-    closure::move_1();
+    // closure::move_1();
+    closure::move_2();
 }

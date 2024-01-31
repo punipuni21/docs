@@ -27,3 +27,18 @@ pub fn move_1() {
     println!("sum: {}", sum());
     println!("values: {:?}", values);
 }
+
+#[allow(dead_code)]
+pub fn move_2() {
+    let mut values = vec![1, 2, 3, 4, 5];
+    let sum = move || {
+        //ownership is moved when 'move' keyword is used
+        let mut sum = 0;
+        for value in values.iter() {
+            sum += value;
+        }
+        sum
+    };
+    println!("sum: {}", sum());
+    println!("values: {:?}", values);
+}
