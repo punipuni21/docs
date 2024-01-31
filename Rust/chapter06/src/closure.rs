@@ -1,6 +1,6 @@
 #[allow(dead_code)]
 pub fn closure_sum() {
-    let sum = |values: &Vec<i32>| {
+    let sum = |values: &Vec<i32>| -> i32 {
         //can declare argument in ||
         //can implement process in {}
         let mut sum = 0;
