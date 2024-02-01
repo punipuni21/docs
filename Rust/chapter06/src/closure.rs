@@ -42,3 +42,32 @@ pub fn move_1() {
 //     println!("sum: {}", sum());
 //     println!("values: {:?}", values);
 // }
+
+use std::ops::Fn;
+
+#[allow(dead_code)]
+pub fn impl_1(values: Vec<i32>) -> impl Fn() -> i32 {
+    move || {
+        let mut sum = 0;
+        for value in values.iter() {
+            sum += value;
+        }
+        sum
+    }
+}
+
+#[allow(dead_code)]
+pub fn where_1<F>(f: F)
+where
+    F: Fn() -> i32,
+{
+    let sum = f();
+    println!("sum: {}", sum);
+}
+
+#[allow(dead_code)]
+pub fn use_impl_where_1() {
+    let values = vec![1, 2, 3, 4, 5];
+    let f = impl_1(values);
+    where_1(f);
+}

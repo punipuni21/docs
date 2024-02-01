@@ -27,5 +27,6 @@ fn main() {
     // result_type::value_setting();
     // closure::closure_sum();
     // closure::move_1();
-    closure::move_2();
+    // closure::move_2();
+    closure::use_impl_where_1();
 }
