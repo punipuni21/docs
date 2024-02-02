@@ -7,6 +7,20 @@ struct Customer {
     email: String,
 }
 
+pub fn generate_1() {
+    let customer = Customer {
+        id: 100,
+        name: String::from("John"),
+        address: String::from("123 Main St"),
+        email: String::from("hoge@sample.com"),
+    };
+
+    println!("id:{}", customer.id);
+    println!("name:{}", customer.name);
+    println!("address:{}", customer.address);
+    println!("email:{}", customer.email);
+}
+
 impl Customer {
     fn new(id: i32, name: String, address: String, email: String) -> Self {
         Self {

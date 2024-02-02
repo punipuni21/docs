@@ -1,4 +1,5 @@
 mod customer;
 fn main() {
-    customer::use_debug();
+    customer::generate_1()
+    // customer::use_debug();
 }
