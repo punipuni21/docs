@@ -71,3 +71,30 @@ pub fn use_impl_where_1() {
     let f = impl_1(values);
     where_1(f);
 }
+
+#[allow(dead_code)]
+pub fn impl_2() -> impl Fn(Vec<i32>) -> i32 {
+    move |values: Vec<i32>| {
+        let mut sum = 0;
+        for value in values.iter() {
+            sum += value;
+        }
+        sum
+    }
+}
+
+#[allow(dead_code)]
+pub fn where_2<F>(f: F)
+where
+    F: Fn(Vec<i32>) -> i32,
+{
+    let values = vec![1, 2, 3, 4, 5];
+    let sum = f(values);
+    println!("sum: {}", sum);
+}
+
+#[allow(dead_code)]
+pub fn use_impl_where_2() {
+    let f = impl_2();
+    where_2(f);
+}
