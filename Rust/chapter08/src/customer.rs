@@ -7,6 +7,7 @@ struct Customer {
     email: String,
 }
 
+#[allow(dead_code)]
 pub fn generate_1() {
     let customer = Customer {
         id: 100,
