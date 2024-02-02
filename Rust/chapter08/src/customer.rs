@@ -23,6 +23,9 @@ pub fn generate_1() {
 }
 
 impl Customer {
+    const ID_MIN: u32 = 1;
+    const ID_MAX: u32 = 10000;
+
     fn new(id: i32, name: String, address: String, email: String) -> Self {
         Self {
             id,
@@ -31,6 +34,12 @@ impl Customer {
             email,
         }
     }
+}
+
+#[allow(dead_code)]
+pub fn use_constant() {
+    println!("ID_MIN:{}", Customer::ID_MIN);
+    println!("ID_MAX:{}", Customer::ID_MAX);
 }
 
 #[allow(dead_code)]
