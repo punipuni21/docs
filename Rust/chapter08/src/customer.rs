@@ -34,12 +34,34 @@ impl Customer {
             email,
         }
     }
+
+    #[allow(dead_code)]
+    fn get_name(&self) -> String {
+        self.name.clone()
+    }
+
+    #[allow(dead_code)]
+    fn set_name(&mut self, name: String) {
+        self.name = name;
+    }
 }
 
 #[allow(dead_code)]
 pub fn use_constant() {
     println!("ID_MIN:{}", Customer::ID_MIN);
     println!("ID_MAX:{}", Customer::ID_MAX);
+}
+
+#[allow(dead_code)]
+pub fn use_method() {
+    let mut customer = Customer::new(
+        100,
+        String::from("John"),
+        String::from("123 Main St"),
+        String::from("hoge@sample.com"),
+    );
+    customer.set_name(String::from("Smith"));
+    println!("name:{}", customer.get_name());
 }
 
 #[allow(dead_code)]
