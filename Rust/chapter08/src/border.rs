@@ -1,3 +1,5 @@
+use std::marker::Copy;
+use std::ops::Add;
 #[allow(dead_code)]
 #[derive(Debug, Clone)]
 struct Customer<T> {
@@ -9,7 +11,7 @@ struct Customer<T> {
 
 impl<T> Customer<T>
 where
-    T: std::ops::Add,
+    T: Add + Copy,
 {
     #[allow(dead_code)]
     fn new(id: T, name: String, address: String, email: String) -> Self {
