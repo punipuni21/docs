@@ -63,6 +63,9 @@ impl Default for Customer {
     }
 }
 
+//TODO TryFrom trait
+//TODO From trait
+
 #[allow(dead_code)]
 pub fn use_constant() {
     println!("ID_MIN:{}", Customer::ID_MIN);
