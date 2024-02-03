@@ -11,7 +11,7 @@ pub enum Season {
 pub fn use_season() {
     let summer = Season::Summer;
     let winter = Season::Winter;
-    println!("Summer is {:?}", summer);
+    println!("Summer is {:?}", summer); //cannot print with {}
     println!("Winter is {:?}", winter);
     //convert into integer
     let summer_num = Season::Summer as i32;
