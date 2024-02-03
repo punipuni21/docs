@@ -52,6 +52,17 @@ impl Drop for Customer {
     }
 }
 
+impl Default for Customer {
+    fn default() -> Self {
+        Self {
+            id: 0,
+            name: String::from(""),
+            address: String::from(""),
+            email: String::from(""),
+        }
+    }
+}
+
 #[allow(dead_code)]
 pub fn use_constant() {
     println!("ID_MIN:{}", Customer::ID_MIN);
@@ -102,4 +113,10 @@ pub fn use_drop() {
     );
     let mut costomer_2 = customer_1.clone();
     costomer_2.set_name(String::from("Smith"));
+}
+
+#[allow(dead_code)]
+pub fn use_default() {
+    let customer = Customer::default();
+    println!("customer: {:?}", customer);
 }

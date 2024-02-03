@@ -8,5 +8,6 @@ fn main() {
     // customer::use_method();
     // customer::use_debug();
     // customer::use_clone();
-    customer::use_drop();
+    // customer::use_drop();
+    customer::use_default();
 }
