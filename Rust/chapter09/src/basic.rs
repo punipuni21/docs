@@ -1,11 +1,12 @@
 use std::fmt::Display;
 use std::fmt::Formatter;
 
+#[repr(u32)]
 #[allow(dead_code)]
 #[derive(Debug)]
 pub enum Season {
-    Spring,
-    Summer,
+    Spring = 100,
+    Summer = 200,
     Autumn,
     Winter,
 }
@@ -38,4 +39,11 @@ pub fn use_season() {
 pub fn use_fmt() {
     println!("{}", Season::Summer);
     println!("{}", Season::Autumn);
+}
+
+pub fn use_repr() {
+    println!("{}", Season::Spring);
+    println!("{}", Season::Summer);
+    println!("{}", Season::Autumn);
+    println!("{}", Season::Winter);
 }
