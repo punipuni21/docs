@@ -1,6 +1,8 @@
 mod basic;
+mod tuple_type;
 fn main() {
     // basic::use_season();
     // basic::use_fmt();
-    basic::use_repr();
+    // basic::use_repr();
+    tuple_type::use_tuple();
 }

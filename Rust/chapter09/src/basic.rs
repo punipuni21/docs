@@ -41,6 +41,7 @@ pub fn use_fmt() {
     println!("{}", Season::Autumn);
 }
 
+#[allow(dead_code)]
 pub fn use_repr() {
     println!("{}", Season::Spring);
     println!("{}", Season::Summer);
