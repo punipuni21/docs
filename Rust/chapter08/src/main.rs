@@ -11,5 +11,6 @@ fn main() {
     // customer::use_clone();
     // customer::use_drop();
     // customer::use_default();
-    generics::use_new();
+    // generics::use_new();
+    generics::use_change_id();
 }
