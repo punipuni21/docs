@@ -1,4 +1,5 @@
 mod customer;
+mod generics;
 mod tuple_unit_type;
 fn main() {
     // customer::generate_1()
@@ -9,5 +10,6 @@ fn main() {
     // customer::use_debug();
     // customer::use_clone();
     // customer::use_drop();
-    customer::use_default();
+    // customer::use_default();
+    generics::use_new();
 }
