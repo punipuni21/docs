@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 struct Customer {
     id: i32,
     name: String,
@@ -46,6 +46,12 @@ impl Customer {
     }
 }
 
+impl Drop for Customer {
+    fn drop(&mut self) {
+        println!("drop instance {}", self.name)
+    }
+}
+
 #[allow(dead_code)]
 pub fn use_constant() {
     println!("ID_MIN:{}", Customer::ID_MIN);
@@ -73,4 +79,27 @@ pub fn use_debug() {
         String::from("hoge@sample.com"),
     );
     println!("customer: {:?}", customer);
+}
+
+#[allow(dead_code)]
+pub fn use_clone() {
+    let customer = Customer::new(
+        100,
+        String::from("John"),
+        String::from("123 Main St"),
+        String::from("hoge@sample.com"),
+    );
+    println!("clone of customer: {:?}", customer.clone());
+}
+
+#[allow(dead_code)]
+pub fn use_drop() {
+    let customer_1 = Customer::new(
+        100,
+        String::from("John"),
+        String::from("123 Main St"),
+        String::from("hoge@sample.com"),
+    );
+    let mut costomer_2 = customer_1.clone();
+    costomer_2.set_name(String::from("Smith"));
 }
