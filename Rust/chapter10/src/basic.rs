@@ -1,5 +1,7 @@
 use anyhow::Result;
 
 pub trait Calculator {
-    fn calc(&self) -> Result<u64>;
+    fn calc(&self) -> Result<u64> {
+        todo!("no implementation")
+    }
 }
