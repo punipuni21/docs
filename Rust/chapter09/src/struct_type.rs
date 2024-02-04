@@ -32,6 +32,18 @@ impl Shape {
     }
 }
 
+impl ToString for Shape {
+    fn to_string(&self) -> String {
+        match self {
+            Self::Rectangle { .. } => "Rectangle",
+            Self::Triangle { .. } => "Triangle",
+            Self::Circle { .. } => "Circle",
+            Self::Trapezius { .. } => "Trapezius",
+        }
+        .to_string()
+    }
+}
+
 #[allow(dead_code)]
 pub fn use_struct() {
     let rectangle = Shape::Rectangle {
