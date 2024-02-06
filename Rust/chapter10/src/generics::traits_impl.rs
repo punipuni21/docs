@@ -34,6 +34,9 @@ where
     T: DeserializeOwned,
 {
     fn read(&self, file_path: &str) -> Result<Vec<T>> {
-        todo!()
+        let path_buf = PathBuf::from(file_path);
+        let buf_reader = File::open(path_buf).map(|file| BufReader::new(file))?;
+        let result = serde_json::from_reader(buf_reader)?;
+        Ok(result)
     }
 }
