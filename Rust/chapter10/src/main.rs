@@ -1,4 +1,4 @@
 mod basic;
 fn main() {
-    basic::use_rectangle();
+    // basic::use_rectangle();
 }

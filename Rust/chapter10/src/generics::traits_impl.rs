@@ -1,5 +1,9 @@
+use std::marker::PhantomData;
+
 #[derive(Defualt)]
-pub struct CsvReaderImpl<T> {}
+pub struct CsvReaderImpl<T> {
+    phantom: PhantomData<T>,
+}
 impl<T> CsvReader<T> for CsvReaderImpl<T>
 where
     T: DeserializeOwned,
@@ -10,7 +14,9 @@ where
 }
 
 #[derive(Defualt)]
-pub struct JsonReaderImpl<T> {}
+pub struct JsonReaderImpl<T> {
+    phantom: PhantomData<T>,
+}
 impl<T> JsonReader<T> for JsonReaderImpl<T>
 where
     T: DeserializeOwned,
