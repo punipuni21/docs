@@ -1,8 +1,13 @@
+use crate::generics::traits::{CsvReader, JsonReader};
+use anyhow::Result;
 use csv::ReaderBuilder;
+use serde::de::DeserializeOwned;
+use std::fs::{read_to_string, File};
+use std::io::BufReader;
 use std::marker::PhantomData;
 use std::path::PathBuf;
 
-#[derive(Defualt)]
+#[derive(Default)]
 pub struct CsvReaderImpl<T> {
     phantom: PhantomData<T>,
 }
@@ -12,11 +17,9 @@ where
 {
     fn read(&self, file_path: &str) -> Result<Vec<T>> {
         let path_buf = PathBuf::from(file_path);
-        let string_data = read_to_string(path_buf);
-        let mut reader = ReaderBuilder::new()
-            .delimiter(b',')
-            .from_reader(string_data.as_bytes());
-        let rows = reader.desirialize::<T>();
+        let string_data = read_to_string(path_buf)?;
+        let mut reader = ReaderBuilder::new().from_reader(string_data.as_bytes());
+        let rows = reader.deserialize::<T>();
         let mut result = Vec::<T>::new();
         for row in rows {
             result.push(row?);
@@ -25,7 +28,7 @@ where
     }
 }
 
-#[derive(Defualt)]
+#[derive(Default)]
 pub struct JsonReaderImpl<T> {
     phantom: PhantomData<T>,
 }

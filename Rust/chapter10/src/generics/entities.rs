@@ -1,6 +1,6 @@
-use serde::Desirialize;
+use serde::Deserialize;
 
-#[derive(Debug, Defualt, Desirialize)]
+#[derive(Debug, Default, Deserialize)]
 pub struct Product {
     pub id: String,
     pub name: String,
