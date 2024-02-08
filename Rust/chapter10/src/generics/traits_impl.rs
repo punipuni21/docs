@@ -11,6 +11,14 @@ use std::path::PathBuf;
 pub struct CsvReaderImpl<T> {
     phantom: PhantomData<T>,
 }
+impl<T> CsvReaderImpl<T> {
+    pub fn new() -> Self {
+        Self {
+            phantom: PhantomData,
+        }
+    }
+}
+
 impl<T> CsvReader<T> for CsvReaderImpl<T>
 where
     T: DeserializeOwned,
@@ -32,6 +40,14 @@ where
 pub struct JsonReaderImpl<T> {
     phantom: PhantomData<T>,
 }
+impl<T> JsonReaderImpl<T> {
+    pub fn new() -> Self {
+        Self {
+            phantom: PhantomData,
+        }
+    }
+}
+
 impl<T> JsonReader<T> for JsonReaderImpl<T>
 where
     T: DeserializeOwned,
