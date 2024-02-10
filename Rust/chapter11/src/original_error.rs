@@ -23,3 +23,15 @@ impl Display for SampleError {
         }
     }
 }
+
+impl From<ParseIntError> for SampleError {
+    fn from(value: ParseIntError) -> Self {
+        Self::IntError(value)
+    }
+}
+
+impl From<ParseFloatError> for SampleError {
+    fn from(value: ParseFloatError) -> Self {
+        Self::FloatError(value)
+    }
+}
