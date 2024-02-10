@@ -1,12 +1,18 @@
-use num_trates::NumOps;
+use num_traits::NumOps;
 use std::error::Error;
 use std::fmt::{Display, Formatter};
 use std::num::{ParseFloatError, ParseIntError};
 use std::str::FromStr;
 
 #[allow(dead_code)]
-pub fn parse_02<T: NumOps + FromStr>(value: String) -> Result<T, E> {
-    todo!()
+pub fn parse_02<T: NumOps + FromStr>(value: String) -> Result<T, SampleError>
+where
+    SampleError: From<<T as FromStr>::Err>,
+{
+    let result = value
+        .parse::<T>()
+        .map_err(|error| SampleError::from(error))?;
+    Ok(result)
 }
 
 #[derive(Debug)]
@@ -34,4 +40,16 @@ impl From<ParseFloatError> for SampleError {
     fn from(value: ParseFloatError) -> Self {
         Self::FloatError(value)
     }
+}
+
+#[allow(dead_code)]
+pub fn use_parse_02() {
+    let result = parse_02::<i32>(String::from("123")).unwrap();
+    println!("{:?}", result);
+    let result = parse_02::<i32>(String::from("ABC")).err().unwrap();
+    println!("{:?}", result.to_string());
+    let result = parse_02::<f32>(String::from("123")).unwrap();
+    println!("{:?}", result);
+    let result = parse_02::<f32>(String::from("ABC")).err().unwrap();
+    println!("{:?}", result.to_string());
 }
