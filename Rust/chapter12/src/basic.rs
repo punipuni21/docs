@@ -53,3 +53,33 @@ pub fn thread_controller_2() {
     println!("total value of thd1 : {}", result1.unwrap());
     println!("total value of thd2 : {}", result2.unwrap());
 }
+
+#[derive(Debug, Default)]
+pub struct Summary;
+impl Summary {
+    pub fn summary_thread(&self, name: String, values: Vec<u64>) -> JoinHandle<u64> {
+        let join_handle = thread::spawn(move || {
+            let mut total: u64 = 0;
+            for value in values {
+                total += value;
+                thread::sleep(Duration::from_secs(2));
+                println!("{}: {}", name, total);
+            }
+            total
+        });
+        join_handle
+    }
+}
+
+#[allow(dead_code)]
+pub fn thread_controller_3() {
+    let s = Summary::default();
+    let thd1 = s.summary_thread(String::from("thd1"), vec![10, 20, 30, 40, 50]);
+    let thd2 = s.summary_thread(String::from("thd2"), vec![100, 200, 300, 400, 500]);
+
+    let result1 = thd1.join().map_err(|error| panic!("{:?}", error)).unwrap();
+    let result2 = thd2.join().map_err(|error| panic!("{:?}", error)).unwrap();
+
+    println!("total value of thd1 : {}", result1);
+    println!("total value of thd2 : {}", result2);
+}
