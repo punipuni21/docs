@@ -1,4 +1,6 @@
 use crossbeam::thread;
+use std::sync::{Arc, Barrier};
+use std::thread::Builder;
 use std::time::Duration;
 
 #[derive(Debug, Default)]
@@ -49,6 +51,50 @@ impl Summary {
         })
         .unwrap();
     }
+
+    #[allow(dead_code)]
+    fn summary_a(values: Vec<u64>) -> u64 {
+        let mut total: u64 = 0;
+        for value in values {
+            total = total + value;
+            std::thread::sleep(Duration::from_secs(2));
+            println!("value of sum1 is {}", value);
+        }
+        total
+    }
+
+    #[allow(dead_code)]
+    pub fn use_barrier() {
+        let mut handles = Vec::with_capacity(3);
+        let barrier = Arc::new(Barrier::new(3));
+        let mut num: u64 = 0;
+        while 2 >= num {
+            let arc = Arc::clone(&barrier);
+            handles.push(
+                Builder::new()
+                    .name(format!("{}{}", "summary", num))
+                    .stack_size(1024 * 5)
+                    .spawn(move || {
+                        let data: Vec<u64> = vec![10 + num, 20 + num, 30 + num, 40 + num, 50 + num];
+                        let result = Self::summary_a(data);
+                        let wresult = arc.wait();
+                        println!(
+                            "{} finish:{}",
+                            std::thread::current().name().unwrap(),
+                            wresult.is_leader()
+                        );
+                        result
+                    })
+                    .unwrap_or_else(|error| panic!("{:?}", error)),
+            );
+            num += 1;
+        }
+        for handle in handles {
+            let thread = handle.thread().clone();
+            let result = handle.join().unwrap_or_else(|error| panic!("{:?}", error));
+            println!("{}:{}", thread.name().unwrap(), result);
+        }
+    }
 }
 
 #[allow(dead_code)]
@@ -61,4 +107,9 @@ pub fn thread_controller_1() {
 pub fn thread_controller_2() {
     let s = Summary::default();
     s.use_builder();
+}
+
+#[allow(dead_code)]
+pub fn thread_controller_3() {
+    Summary::use_barrier();
 }
