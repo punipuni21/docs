@@ -29,10 +29,36 @@ impl Summary {
         })
         .unwrap();
     }
+
+    #[allow(dead_code)]
+    pub fn use_builder(&self) {
+        thread::scope(|scope| {
+            let handle1 = scope
+                .builder()
+                .name(String::from("sum1"))
+                .stack_size(1024 * 3)
+                .spawn(|_| {
+                    self.summary(
+                        std::thread::current().name().unwrap(),
+                        vec![10, 20, 30, 40, 50],
+                    )
+                })
+                .unwrap_or_else(|error| panic!("{:?}", error));
+            let total1 = handle1.join().unwrap_or_else(|error| panic!("{:?}", error));
+            println!("Total1: {}", total1);
+        })
+        .unwrap();
+    }
 }
 
 #[allow(dead_code)]
 pub fn thread_controller_1() {
     let s = Summary::default();
     s.summary_thread();
+}
+
+#[allow(dead_code)]
+pub fn thread_controller_2() {
+    let s = Summary::default();
+    s.use_builder();
 }
