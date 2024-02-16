@@ -30,6 +30,7 @@ impl Guest {
         }
     }
 
+    #[allow(dead_code)]
     pub fn calc_fee(self) -> Result<u32, SampleError> {
         let fee = match self.age {
             0..=4 => 0,
@@ -42,6 +43,7 @@ impl Guest {
         Ok(fee)
     }
 
+    #[allow(dead_code)]
     fn calc_campaign_fee(&self, mut fee: u32) -> u32 {
         if self.campaign && fee != 0 {
             fee = fee * 90 / 100;
@@ -54,11 +56,18 @@ impl Guest {
 mod test {
     use super::*;
 
-    #[ignore = "implementation is not completed"]
+    #[ignore = "This test is ignored"]
     #[test]
     fn calc_fee01() {
         let guest = Guest::new(10, false);
         let result = guest.clone().calc_fee().unwrap();
         assert!(result == 500, "{}", &guest);
+    }
+
+    #[test]
+    fn calc_fee_case_campaign_01() {
+        let guest = Guest::new(10, true);
+        let result = guest.clone().calc_fee().unwrap();
+        assert!(result == 450, "{}", &guest)
     }
 }
