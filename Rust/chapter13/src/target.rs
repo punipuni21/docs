@@ -24,16 +24,19 @@ impl Display for Guest {
 }
 impl Guest {
     pub fn new(_age: u32, _campaign: bool) -> Self {
-        Self
+        Self {
+            age: _age,
+            campaign: _campaign,
+        }
     }
 
-    pub fn calc_fee(self) -> Result<u32, SampleResult> {
+    pub fn calc_fee(self) -> Result<u32, SampleError> {
         let fee = match self.age {
-            0..4 => 0,
-            5..12 => 500,
-            13..17 => 700,
-            18..64 => 1000,
-            65..120 => 600,
+            0..=4 => 0,
+            5..=12 => 500,
+            13..=17 => 700,
+            18..=64 => 1000,
+            65..=120 => 600,
             _ => return Err(SampleError::Msg("Invalid age".to_string())),
         };
         Ok(fee)
@@ -50,4 +53,12 @@ impl Guest {
 #[cfg(test)]
 mod test {
     use super::*;
+
+    #[ignore = "implementation is not completed"]
+    #[test]
+    fn calc_fee01() {
+        let guest = Guest::new(10, false);
+        let result = guest.clone().calc_fee().unwrap();
+        assert!(result == 500, "{}", &guest);
+    }
 }
