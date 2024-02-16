@@ -1,4 +1,5 @@
-use crossbeam::thread;
+use crossbeam::sync::WaitGroup;
+use crossbeam::thread::{self};
 use std::sync::{Arc, Barrier};
 use std::thread::Builder;
 use std::time::Duration;
@@ -95,6 +96,41 @@ impl Summary {
             println!("{}:{}", thread.name().unwrap(), result);
         }
     }
+
+    #[allow(dead_code)]
+    pub fn use_wait_group(&self) {
+        thread::scope(|scope| {
+            let mut handles = Vec::with_capacity(3);
+            let wait_group = WaitGroup::new();
+            let mut num: u64 = 0;
+            while 2 >= num {
+                let wg = wait_group.clone();
+                handles.push(
+                    scope
+                        .builder()
+                        .name(format!("{}{}", "summary", num))
+                        .stack_size(1024 * 3)
+                        .spawn(move |_| {
+                            let result = self.summary(
+                                std::thread::current().name().unwrap(),
+                                vec![10 + num, 20 + num, 30 + num, 40 + num, 50 + num],
+                            );
+                            drop(wg);
+                            result
+                        })
+                        .unwrap_or_else(|error| panic!("{:?}", error)),
+                );
+                num += 1;
+            }
+            wait_group.wait();
+            for handle in handles {
+                let thread = handle.thread().clone();
+                let result = handle.join().unwrap_or_else(|error| panic!("{:?}", error));
+                println!("total of {}:{}", thread.name().unwrap(), result);
+            }
+        })
+        .unwrap();
+    }
 }
 
 #[allow(dead_code)]
@@ -112,4 +148,10 @@ pub fn thread_controller_2() {
 #[allow(dead_code)]
 pub fn thread_controller_3() {
     Summary::use_barrier();
+}
+
+#[allow(dead_code)]
+pub fn thread_controller_4() {
+    let s = Summary::default();
+    s.use_wait_group();
 }
