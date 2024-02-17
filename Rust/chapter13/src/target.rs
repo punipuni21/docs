@@ -98,4 +98,12 @@ mod test {
         let result = guest.clone().calc_fee().unwrap();
         assert_eq!(630, result, "{}", &guest)
     }
+
+    #[test]
+    fn calc_fee_case_wrong_age() {
+        let guest = Guest::new(125, false);
+        let result = guest.clone().calc_fee().unwrap_err();
+        let expected_err = SampleError::Msg("Invalid age".to_string());
+        assert_eq!(expected_err, result, "{}", &guest)
+    }
 }
