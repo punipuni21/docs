@@ -1,4 +1,3 @@
-use std::error::Error;
 use std::fmt::{Debug, Display, Formatter};
 
 #[derive(Debug, Eq, PartialEq)]
@@ -55,6 +54,7 @@ impl Guest {
 #[cfg(test)]
 mod test {
     use super::*;
+    use core::panic;
 
     #[ignore = "This test is ignored"]
     #[test]
@@ -112,5 +112,23 @@ mod test {
         let guest = Guest::new(0, true);
         let result = guest.calc_campaign_fee(1000);
         assert_eq!(900, result, "{}", &guest)
+    }
+
+    #[test]
+    #[ignore = "ignored"]
+    #[should_panic(expected = "Invalid age")]
+    fn calc_fee_case_should_panic() {
+        let guest = Guest::new(125, false);
+        match guest.calc_fee() {
+            Ok(result) => assert_ne!(700, result),
+            Err(_) => panic!(),
+        }
+    }
+    #[test]
+    fn use_dbg() {
+        let guest = Guest::new(0, true);
+        dbg!(&guest);
+        let result = guest.calc_campaign_fee(1000);
+        assert_eq!(900, result)
     }
 }
