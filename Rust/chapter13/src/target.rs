@@ -84,4 +84,18 @@ mod test {
         let result = guest.clone().calc_fee().unwrap();
         assert_eq!(630, result, "{}", &guest)
     }
+
+    #[test]
+    fn calc_fee_case_03() {
+        let guest = Guest::new(18, false);
+        let result = guest.clone().calc_fee().unwrap();
+        assert_ne!(700, result, "{}", &guest)
+    }
+
+    #[test]
+    fn calc_fee_case_campaign_03() {
+        let guest = Guest::new(15, true);
+        let result = guest.clone().calc_fee().unwrap();
+        assert_eq!(630, result, "{}", &guest)
+    }
 }
