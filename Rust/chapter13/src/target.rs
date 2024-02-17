@@ -40,7 +40,7 @@ impl Guest {
             65..=120 => 600,
             _ => return Err(SampleError::Msg("Invalid age".to_string())),
         };
-        Ok(fee)
+        Ok(self.calc_campaign_fee(fee))
     }
 
     #[allow(dead_code)]
