@@ -106,4 +106,11 @@ mod test {
         let expected_err = SampleError::Msg("Invalid age".to_string());
         assert_eq!(expected_err, result, "{}", &guest)
     }
+
+    #[test]
+    fn calc_campaign_fee_case_01() {
+        let guest = Guest::new(0, true);
+        let result = guest.calc_campaign_fee(1000);
+        assert_eq!(900, result, "{}", &guest)
+    }
 }
