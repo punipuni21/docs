@@ -1,6 +1,6 @@
 use lombok::*;
 
-#[derive(Getter, GeetterMut, Setter, NoArgsConstructor, AllArgsConstructor, ToString, Clone)]
+#[derive(Getter, GetterMut, Setter, NoArgsConstructor, AllArgsConstructor, ToString, Clone)]
 pub struct ConnectParams {
     host: String,
     port: u16,
