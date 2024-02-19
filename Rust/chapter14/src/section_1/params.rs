@@ -16,3 +16,20 @@ impl ConnectParams {
         )
     }
 }
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use anyhow::Result;
+    #[test]
+    fn connect_string() -> Result<()> {
+        let params = ConnectParams::new(
+            "localhost".to_owned(),
+            5432,
+            "rust_sample".to_owned(),
+            "postgres".to_owned(),
+            "postgres".to_owned(),
+        );
+        println!("{:?}", params);
+        Ok(())
+    }
+}
