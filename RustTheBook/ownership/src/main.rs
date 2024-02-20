@@ -1,2 +1,4 @@
 mod sample;
-fn main() {}
+fn main() {
+    sample::sample3();
+}
