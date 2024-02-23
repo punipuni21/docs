@@ -72,3 +72,15 @@ pub fn sample7() {
 
     let _r2 = &mut s;
 }
+
+#[allow(dead_code)]
+pub fn sample8() {
+    let mut s = String::from("hello");
+
+    //不変な参照と可変な参照を同時に持つことはできない
+    let r1 = &s; // 問題なし
+    let r2 = &s; // 問題なし
+    let r3 = &mut s; //問題あり
+
+    println!("{}, {}", r1, r2);
+}
