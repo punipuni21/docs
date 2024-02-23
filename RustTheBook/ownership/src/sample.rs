@@ -49,3 +49,15 @@ pub fn sample5() {
 fn change(some_string: &mut String) {
     some_string.push_str(", world");
 }
+
+//可変な参照は一つしか持てない．この制約により，データ競合を防ぐことができる
+// #[allow(dead_code)]
+// pub fn sample6() {
+//     let mut s = String::from("hello");
+
+//     let r1 = &mut s;
+//     let r2 = &mut s;
+//     //cannot borrow `s` as mutable more than once at a time
+
+//     println!("{}, {}", r1, r2);
+// }
