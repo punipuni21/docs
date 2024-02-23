@@ -22,3 +22,17 @@ pub fn sample3() {
 
     println!("x = {}, y = {}", x, y);
 }
+
+#[allow(dead_code)]
+fn sample4() {
+    let s1 = String::from("hello");
+
+    let len = calculate_length(&s1);
+
+    println!("The length of '{}' is {}.", s1, len);
+}
+
+#[allow(dead_code)]
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}
