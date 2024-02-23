@@ -67,8 +67,8 @@ pub fn sample7() {
     let mut s = String::from("hello");
 
     {
-        let r1 = &mut s;
-    } // r1はここでスコープを抜けるため，sの所有権を返却する
+        let _r1 = &mut s;
+    } // r1はここでスコープを抜ける
 
-    let r2 = &mut s;
+    let _r2 = &mut s;
 }
