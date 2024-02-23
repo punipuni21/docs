@@ -61,3 +61,14 @@ fn change(some_string: &mut String) {
 
 //     println!("{}, {}", r1, r2);
 // }
+
+#[allow(dead_code)]
+pub fn sample7() {
+    let mut s = String::from("hello");
+
+    {
+        let r1 = &mut s;
+    } // r1はここでスコープを抜けるため，sの所有権を返却する
+
+    let r2 = &mut s;
+}
