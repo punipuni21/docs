@@ -37,3 +37,15 @@ fn calculate_length(s: &String) -> usize {
     //関数の引数に参照をとることを借用という
     s.len()
 } //sスコープ外になるが，所有権を持っていないためdrop関数は呼び出されない．
+
+#[allow(dead_code)]
+pub fn sample5() {
+    let mut s = String::from("hello");
+
+    change(&mut s);
+}
+
+#[allow(dead_code)]
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
