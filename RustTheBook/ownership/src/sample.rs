@@ -9,7 +9,7 @@ pub fn sample1() {
 
 #[allow(dead_code)]
 pub fn sample2() {
-    let s1 = String::from("hello");
+    // let s1 = String::from("hello");
     // let s2 = s1;
 
     // println!("{}, world!", s1);// s1はs1に移動した後無効化されている．スコープを抜けてもdrop関数は呼び出されない
@@ -24,7 +24,7 @@ pub fn sample3() {
 }
 
 #[allow(dead_code)]
-fn sample4() {
+pub fn sample4() {
     let s1 = String::from("hello");
 
     let len = calculate_length(&s1);
