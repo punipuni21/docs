@@ -35,4 +35,4 @@ pub fn sample4() {
 #[allow(dead_code)]
 fn calculate_length(s: &String) -> usize {
     s.len()
-}
+} //sスコープ外になるが，所有権を持っていないためdrop関数は呼び出されない．
