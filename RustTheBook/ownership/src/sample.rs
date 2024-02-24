@@ -84,3 +84,14 @@ pub fn sample8() {
 
     println!("{}, {}", r1, r2);
 }
+
+#[allow(dead_code)]
+pub fn sample9() {
+    let reference_to_nothing = dangle();
+}
+
+fn dangle() -> &String {
+    let s = String::from("hello");
+
+    &s //sの参照を返すが，sはスコープを抜けるとdrop関数が呼び出されるため，参照先がなくなる
+}
