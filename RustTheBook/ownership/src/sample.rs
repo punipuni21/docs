@@ -90,8 +90,14 @@ pub fn sample9() {
     let reference_to_nothing = dangle();
 }
 
-fn dangle() -> &String {
+// fn dangle() -> &String {
+//     let s = String::from("hello");
+
+//     &s //sの参照を返すが，sはスコープを抜けるとdrop関数が呼び出されるため，参照先がなくなる
+// }
+
+fn no_dangle() -> String {
     let s = String::from("hello");
 
-    &s //sの参照を返すが，sはスコープを抜けるとdrop関数が呼び出されるため，参照先がなくなる
+    s
 }
