@@ -85,10 +85,10 @@ pub fn sample8() {
     println!("{}, {}", r1, r2);
 }
 
-#[allow(dead_code)]
-pub fn sample9() {
-    let reference_to_nothing = dangle();
-}
+// #[allow(dead_code)]
+// pub fn sample9() {
+//     let reference_to_nothing = dangle();
+// }
 
 // fn dangle() -> &String {
 //     let s = String::from("hello");
