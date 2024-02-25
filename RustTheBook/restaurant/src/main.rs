@@ -6,3 +6,8 @@ fn main() {
     let mut map = HashMap::new();
     map.insert(1, 2);
 }
+
+use std::io::{self, Write};
+//上と下は同じ
+// use std::io;
+// use std::io::Write;
