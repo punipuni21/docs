@@ -1,4 +1,4 @@
-pub mod front_of_house {
+mod front_of_house {
     pub mod hosting {
         pub fn add_to_waitlist() {}
 
@@ -14,7 +14,7 @@ pub mod front_of_house {
     }
 }
 
-pub mod back_of_house {
+mod back_of_house {
 
     pub struct Breakfast {
         //構造体は公開，フィールドは非公開
@@ -43,6 +43,8 @@ pub mod back_of_house {
 
     fn cook_order() {}
 }
+
+// use crate::front_of_house::hosting;
 
 pub fn eat_at_restaurant() {
     let mut meal = back_of_house::Breakfast::summer("Rye");
