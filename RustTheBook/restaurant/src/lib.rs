@@ -44,7 +44,8 @@ mod back_of_house {
     fn cook_order() {}
 }
 
-use self::front_of_house::hosting;
+use self::front_of_house::hosting; //hostingまで記載するのは慣例
+
 // use crate::front_of_house::hosting;
 
 pub fn eat_at_restaurant() {
@@ -56,7 +57,7 @@ pub fn eat_at_restaurant() {
     let order1 = back_of_house::Appetizer::Soup;
     let order2 = back_of_house::Appetizer::Salad;
 
-    hosting::add_to_waitlist();
+    hosting::add_to_waitlist(); //関数がローカルで定義されていないことを明示できる
     hosting::add_to_waitlist();
     hosting::add_to_waitlist();
 }
