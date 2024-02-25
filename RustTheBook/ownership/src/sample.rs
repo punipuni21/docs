@@ -73,17 +73,17 @@ pub fn sample7() {
     let _r2 = &mut s;
 }
 
-#[allow(dead_code)]
-pub fn sample8() {
-    let mut s = String::from("hello");
+// #[allow(dead_code)]
+// pub fn sample8() {
+//     let mut s = String::from("hello");
 
-    //不変な参照と可変な参照を同時に持つことはできない
-    let r1 = &s; // 問題なし
-    let r2 = &s; // 問題なし
-    let r3 = &mut s; //問題あり
+//     //不変な参照と可変な参照を同時に持つことはできない
+//     let r1 = &s; // 問題なし
+//     let r2 = &s; // 問題なし
+//     let r3 = &mut s; //問題あり
 
-    println!("{}, {}", r1, r2);
-}
+//     println!("{}, {}", r1, r2);
+// }
 
 // #[allow(dead_code)]
 // pub fn sample9() {
@@ -96,6 +96,7 @@ pub fn sample8() {
 //     &s //sの参照を返すが，sはスコープを抜けるとdrop関数が呼び出されるため，参照先がなくなる
 // }
 
+#[allow(dead_code)]
 fn no_dangle() -> String {
     let s = String::from("hello");
 
