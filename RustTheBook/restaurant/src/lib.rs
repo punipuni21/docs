@@ -63,7 +63,7 @@ pub fn eat_at_restaurant() {
 }
 
 use std::fmt;
-use std::io;
+use std::io::Result as IoResult;
 //これは例外
 fn function1() -> fmt::Result {
     // --snip--
@@ -71,8 +71,8 @@ fn function1() -> fmt::Result {
     Result::Ok(())
 }
 
-fn function2() -> io::Result<()> {
+fn function2() -> IoResult<()> {
     // --snip--
     // （略）
-    Result::Ok(())
+    IoResult::Ok(())
 }
