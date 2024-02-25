@@ -1,4 +1,4 @@
-mod front_of_house {
+pub mod front_of_house {
     pub mod hosting {
         pub fn add_to_waitlist() {}
 
@@ -14,7 +14,7 @@ mod front_of_house {
     }
 }
 
-mod back_of_house {
+pub mod back_of_house {
 
     pub struct Breakfast {
         //構造体は公開，フィールドは非公開
