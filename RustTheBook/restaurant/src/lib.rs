@@ -44,7 +44,7 @@ mod back_of_house {
     fn cook_order() {}
 }
 
-use self::front_of_house::hosting; //hostingまで記載するのは慣例
+pub use self::front_of_house::hosting; //hostingまで記載するのは慣例
 
 // use crate::front_of_house::hosting;
 
