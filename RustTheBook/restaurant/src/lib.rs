@@ -1,18 +1,5 @@
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-
-        fn seat_at_table() {}
-    }
-
-    pub mod serving {
-        fn take_order() {}
-
-        pub fn serve_order() {}
-
-        fn take_payment() {}
-    }
-}
+mod front_of_house;
+pub use self::front_of_house::hosting; //hostingまで記載するのは慣例
 
 mod back_of_house {
 
@@ -43,8 +30,6 @@ mod back_of_house {
 
     fn cook_order() {}
 }
-
-pub use self::front_of_house::hosting; //hostingまで記載するのは慣例
 
 // use crate::front_of_house::hosting;
 
