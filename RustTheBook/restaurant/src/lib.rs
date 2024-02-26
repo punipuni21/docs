@@ -1,5 +1,5 @@
-mod front_of_house;
-pub use self::front_of_house::hosting; //hostingまで記載するのは慣例
+mod front_of_house; //front_of_house.rsを読み込む
+pub use crate::front_of_house::hosting; //hostingまで記載するのは慣例
 
 mod back_of_house {
 
