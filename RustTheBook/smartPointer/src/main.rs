@@ -31,7 +31,7 @@ fn main() {
     let y = Box::new(x);
 
     assert_eq!(5, x);
-    assert_eq!(5, *y);
+    assert_eq!(5, *(y.deref()));
 
     let x = 5;
     let y = MyBox::new(x);
