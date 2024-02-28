@@ -64,4 +64,11 @@ fn main() {
     };
     println!("CustomSmartPointers created.");
     //変数は生成されたのと逆順でdropされる
+
+    let c = CustomSmartPointer {
+        data: String::from("some data"),
+    };
+    println!("CustomSmartPointer created.");
+    // c.drop();dropを明示的に呼び出すことはできない
+    println!("CustomSmartPointer dropped before the end of main.");
 }
