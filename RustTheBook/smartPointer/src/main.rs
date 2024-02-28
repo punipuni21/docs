@@ -22,6 +22,10 @@ impl<T> Deref for MyBox<T> {
     }
 }
 
+fn hello(name: &str) {
+    println!("Hello, {}!", name);
+}
+
 #[allow(unused_variables)]
 fn main() {
     let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
@@ -38,4 +42,7 @@ fn main() {
 
     assert_eq!(5, x);
     assert_eq!(5, *y);
+
+    let m = MyBox::new(String::from("Rust"));
+    hello(&m);
 }
