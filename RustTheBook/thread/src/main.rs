@@ -40,6 +40,9 @@ fn main() {
         // println!("val is {}", val); compile error occurs
     });
 
-    let recieved = rx.recv().unwrap();
-    println!("Got: {}", recieved)
+    // let recieved = rx.recv().unwrap();
+    // println!("Got: {}", recieved)
+    for received in rx {
+        println!("Got: {}", received);
+    }
 }
