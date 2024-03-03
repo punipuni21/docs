@@ -81,12 +81,30 @@ fn main() {
     //     println!("Got: {}", received);
     // }
 
-    let m = Mutex::new(5);
+    // let m = Mutex::new(5);
 
-    {
-        let mut num = m.lock().unwrap();
-        *num = 6;
-    } //自動でunlockされる
+    // {
+    //     let mut num = m.lock().unwrap();
+    //     *num = 6;
+    // } //自動でunlockされる
 
-    println!("m = {:?}", m);
+    // println!("m = {:?}", m);
+
+    let counter = Mutex::new(0);
+    let mut handles = vec![];
+
+    for _ in 0..10 {
+        let handle = thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+
+            *num += 1;
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Result: {}", *counter.lock().unwrap());
 }
