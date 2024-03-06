@@ -1,21 +1,14 @@
-use std::alloc::{GlobalAlloc, Layout, System};
-
-struct MyAllocator;
-
-unsafe impl GlobalAlloc for MyAllocator {
-    unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
-        System.alloc(layout)
-    }
-
-    unsafe fn dealloc(&self, ptr: *mut u8, layout: Layout) {
-        System.dealloc(ptr, layout)
-    }
-}
-
-#[global_allocator]
-static GLOBAL: MyAllocator = MyAllocator;
+use std::{io, result};
 
 fn main() {
-    let mut v = Vec::new();
-    v.push(1);
+    let mut buffer = String::new();
+    let stdin = io::stdin(); // We get `Stdin` here.
+    let result = stdin.read_line(&mut buffer).ok();
+
+    match result {
+        Some(n) => {
+            println!("{}", buffer);
+        }
+        None => println!("error: unable to read user input"),
+    }
 }
